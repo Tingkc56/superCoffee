@@ -2,12 +2,7 @@
 echo "hello";
 
 require('vendor/autoload.php');
-// try{
-//    $db = new PDO('mysql:host=localhost:3306;dbname=supercoffee', 'root', '');
-//     echo "connected";
-// }   catch (PDOException $e){
-//     echo "not connected error:" .$e->getMessage();
-// }
+
 if($_SERVER['HTTP_HOST'] !="supercoffee.herokuapp.com/"){
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();}
@@ -15,7 +10,6 @@ $dotenv->load();}
 $path="mysql:host=".$_ENV['DB_DNS'].";dbname=".$_ENV['DB_NAME'].";port=".$_ENV['DB_port'];
 try{
    $db = new PDO($path,$_ENV['DB_USER'],$_ENV['DB_PASS']);
- //$db = new PDO('mysql:host=mysql-21126-0.cloudclusters.net;dbname=superCoffee;port=21126', 'adminTing', 'adminTing');
     echo "connected";
 }   catch (PDOException $e){
     echo "not connected error:" .$e->getMessage();
